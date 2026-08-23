@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Deterministic>true</Deterministic>
+    <NoWarn>$(NoWarn);MSB3277</NoWarn>
+    <RootNamespace>SuzerainFrenchDataLegacy</RootNamespace>
+  </PropertyGroup>
+
+  <Target Name="ValidateGamePath" BeforeTargets="ResolveReferences">
+    <Error Condition="'$(GamePath)' == ''" Text="Passez -p:GamePath=CHEMIN_VERS_SUZERAIN." />
+    <Error Condition="!Exists('$(GamePath)\Suzerain.exe')" Text="GamePath ne pointe pas vers une installation de Suzerain." />
+  </Target>
+
+  <ItemGroup>
+    <Reference Include="MelonLoader" HintPath="$(GamePath)\MelonLoader\net6\MelonLoader.dll" Private="false" />
+    <Reference Include="0Harmony" HintPath="$(GamePath)\MelonLoader\net6\0Harmony.dll" Private="false" />
+    <Reference Include="Newtonsoft.Json" HintPath="$(GamePath)\Suzerain_Data\Managed\Newtonsoft.Json.dll" Private="false" />
+  </ItemGroup>
+</Project>

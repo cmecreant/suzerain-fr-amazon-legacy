@@ -1,0 +1,32 @@
+name: Texte restant en anglais
+description: Signaler un élément non traduit dans la version Amazon/Legacy
+title: "[Non traduit] "
+labels:
+  - translation
+body:
+  - type: markdown
+    attributes:
+      value: Merci de ne pas publier de sauvegarde contenant des données personnelles.
+  - type: input
+    id: screen
+    attributes:
+      label: Écran ou rubrique
+      placeholder: Journal, rapport, codex, décision…
+    validations:
+      required: true
+  - type: textarea
+    id: text
+    attributes:
+      label: Texte anglais visible
+      description: Une courte phrase suffit pour retrouver l'entrée.
+    validations:
+      required: true
+  - type: input
+    id: chapter
+    attributes:
+      label: Chapitre ou tour
+  - type: textarea
+    id: context
+    attributes:
+      label: Contexte supplémentaire
+      description: Étapes, capture d'écran ou extrait pertinent de MelonLoader/Latest.log.
